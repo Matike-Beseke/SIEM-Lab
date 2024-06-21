@@ -21,13 +21,18 @@ The VM Lab project is aimed to establish a controlled environment for detecting,
 ## Steps
 
 STEP I. Create Elastic Defend and Add Agents
+
 ![Screenshot 2024-06-13 194510](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/443ce52f-5ab2-4e9f-96c8-76669bf6a4ca)
 
-First you go into elastic and create an Elastic Defend Integration. You should get a link to install Elastic Agent to host. Copy the link and paste it in your Kali Linux VM terminal
+First I went into elastic and created an Elastic Defend Integration. There's a link provided to install Elastic Agent to host. I then copied the link and pasted it in my Kali Linux VM terminal and proceed with commands to download.
 
 
+STEP II. Run Nmap Scan and Check for Scan in Logs
 
-STEP II. Open terminal on external device to ping target host
+Next I checked the logs to confirm the nmap scans were successful
+
+![Screenshot 2024-06-13 194912](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/6cffc22a-7b66-4a7d-bebd-9abbd2128130)
+![Screenshot 2024-06-13 194912](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/a67be7a7-1095-4b6f-b5e4-2c2cced54f27)
 
 The purpose of pinging the host is to see if it's able to communicate with external devices before the scan. With this in mind, I open terminal on our PC and we ping the host by typing "ping 192.168.1.203"
 
