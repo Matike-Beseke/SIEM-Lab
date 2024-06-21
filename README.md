@@ -2,7 +2,7 @@
 
 ## Objective
 
-The VM Lab project is aimed to establish a controlled environment for detecting, prioritizing and remediating vulnerabilities. The primary focus was to setup a virtual machine running Metapsloitable 2.0 and running a credentialed scan for vulnerabilities using Nessus Essentials. After the scan is completed, we then gathered the information from the Vulnerability Report to do further prioritization and reporting for remediation. This hands-on experience was designed to deepen understanding of Vulnerability Management and its life cycle.
+The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
 
 ### Skills Learned
 
@@ -29,43 +29,25 @@ First I went into elastic and created an Elastic Defend Integration. There's a l
 
 STEP II. Run Nmap Scan and Check for Scan in Logs
 
-Next I checked the logs to confirm the nmap scans were successful
+Next I checked the logs to confirm the nmap scans were successful. In the command prompt i entered "nmap -p- localhost" to do a scan. 
+![Screenshot 2024-06-13 194533](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/6b13d39d-43d5-4a46-af17-f06d221c4494)
 
-![Screenshot 2024-06-13 194912](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/6cffc22a-7b66-4a7d-bebd-9abbd2128130)
+After the scan was completed I went in the logs and confirmed 
+
 ![Screenshot 2024-06-13 194912](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/a67be7a7-1095-4b6f-b5e4-2c2cced54f27)
 
-The purpose of pinging the host is to see if it's able to communicate with external devices before the scan. With this in mind, I open terminal on our PC and we ping the host by typing "ping 192.168.1.203"
+Here are the logs for the environment
 
-![Screenshot 2024-06-12 162431](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/393c4ed1-b6ba-4e36-a458-ac40d3d01adc)
+STEP III. Create a Dashboard and Alert System for Events
 
-As you can see, the ping was successful and my PC was able to communicate with the target host, indicating it's alive.
+This Dashboard allows me to visualize the time and frequency of the events
+![Screenshot 2024-06-13 204319](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/5847aa51-ad97-43e7-a468-bf7ea670dee3)
 
-STEP III. Create a Credentialed Scan on Nessus
+This is a new rule set in the alert system that allows me to get an alert through Email every time my envirnment gets scanned. 
+![Screenshot 2024-06-13 202006](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/bcc9a0a0-06c5-4041-a955-26f506a816e7)
 
-Now here is where this gets most exciting. Now it's time to have to make the credentialed scan using Nessus. First click on "Create new scan" tab on the top right corner of the Nessus menu then click on "Basic Scan" and it should take you to the screen attached below. After that, in the "Targets" tab enter the host IP Address which will be "192.168.1.203". Then name the rest as as needed to, then click "credentials".
+After the rule is set, I go back in my command prompt to make another scan with "nmap -p- localhost". After that is done, I should get an alert displaying "NMAP SCAN DETECTED"
 
-![Screenshot 2024-06-12 162557](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/9fa7a78d-71a8-4f8f-8067-501008e5f6e5)
 
-Next up is the credentials. Since this is a Linux based host, we set it on SSH. After that, ensure the Authentication method is set to "password". After that is set, enter in the admin user and password. After that is set click "Save" and run the scan.
 
-![Screenshot 2024-06-12 162625](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/7ebfab69-38d3-4f83-9811-b495d8437f24)
 
-WHY CREDENTIALS?
-- Credentialed scanning involves using privileged credentials to conduct comprehensive vulnerability analysis and obtain accurate results by assessing systems and applications that are typically inaccessible without authentication.
-- Uncredentialed scanning offers less precision but can still identify basic vulnerabilities that may be exploitable.
-
-STEP IV. Analyze Vulnerability Data and Create Report
-
-Now the final stages of the initial cycle is coming to an end. As seen below, there are 29 critical, 95 high and 138 medium vulnerabilities. Most of these vulnerabilities stem from simple passwords, out of date pluging, open ports and more.
-
-![Screenshot 2024-06-12 162648](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/11eb4314-81cc-4d75-81fd-d98ad1aafca3)
-
-Next step is to create a report on Excel or Google Sheets and you're done. You have free range of how you can filter and prioritize data according to your needs. Here are some examples below
-
-![Screenshot 2024-06-13 134621](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/ca93b3f4-5972-4a3a-a00d-001c05cf0b90)
-
-![Screenshot 2024-06-13 134732](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/c2924cea-e18c-4c76-a9cb-e5cb712068be)
-
-![Screenshot 2024-06-13 135052](https://github.com/Matike-Beseke/Vulnerability-Management-Lab/assets/172703140/7930a0c6-6461-4de6-b7d0-7d2e83f1cf5e)
-
-Now that we have made the report we are done with the lab.
