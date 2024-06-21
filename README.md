@@ -48,6 +48,7 @@ This is a new rule set in the alert system that allows me to get an alert throug
 
 After the rule is set, I go back in my command prompt to make another scan with "nmap -p- localhost". After that is done, I should get an alert displaying "NMAP SCAN DETECTED"
 
+![IMG_3535](https://github.com/Matike-Beseke/SIEM-Lab/assets/172703140/6d75dd3b-aef8-4eed-9216-f452e5286427)
 
 
 
